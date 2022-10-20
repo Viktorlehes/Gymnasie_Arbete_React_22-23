@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const signUpTemplate = new mongoose.Schema({
+const user = new mongoose.Schema({
     fullName:{
         type: String,
         required: true
@@ -23,4 +23,6 @@ const signUpTemplate = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('mytable', signUpTemplate)
+const Model = mongoose.model('mytable', user)
+
+export default Model

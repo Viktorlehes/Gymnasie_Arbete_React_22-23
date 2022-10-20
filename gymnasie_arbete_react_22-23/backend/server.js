@@ -1,25 +1,50 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const routesUrls = require('./routes/routes.js')
-const cors = require('cors')
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import routesUrls from './routes/routes.js'
+import cors from 'cors';
 
 //something
-dotenv.config()
+// dotenv.config()
 
 //save login to database
-mongoose.connect(process.env.DATABASE_ACCESS,() => console.log("Database Connected"))
 
-//initialize
-app.use(express.json())
+const uri = "mongodb+srv://Vik:Vik@cluster0.u8bfyfl.mongodb.net/?retryWrites=true&w=majority"
 
-//handle requests
-app.use(cors())
+async function connect() {
+    try {
+        await mongoose.connect(uri);
+        console.log("connected to MongoDB");
+    } catch (err){
+        console.log(err);
+    }
+}
 
-//routes 
-app.use('/app', routesUrls)
+await connect();
 
-//listen for requests
+
 app.listen(4000, () => console.log("server is up and running"));
 
+
+// mongoose.connect(process.env.DATABASE_ACCESS , {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// },(e) => {
+
+//     if(!e) {
+//         console.log("Database Connected")
+//     } 
+//     console.log(e)
+// })
+
+// //initialize
+// app.use(express.json())
+
+// //handle requests
+// app.use(cors())
+
+// //routes 
+// app.use('/app', routesUrls)
+
+//listen for requests
