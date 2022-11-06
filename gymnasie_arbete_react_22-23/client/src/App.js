@@ -10,12 +10,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand navbar-light fixed-top">
           <div className="container">
             <div className="navbar-brand">
               Schedular
             </div>
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div  >
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                   <Link className="nav-link" to={'/sign-in'}>

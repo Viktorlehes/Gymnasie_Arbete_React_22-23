@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useState } from "react";
 
 function SignUp() {
@@ -9,14 +9,11 @@ function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ fname, lname, email, password });
     fetch("http://localhost:8000/sign-up", {
       method: "POST",
-      crossDomain: true,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin" : "*",
       },
       body: JSON.stringify({
         fname,
@@ -24,7 +21,7 @@ function SignUp() {
         email,
         password,
       })
-    });
+    }).then(d => d.json()).then(e => console.log(e)).catch(err => console.log(err));
   }
 
   return (
