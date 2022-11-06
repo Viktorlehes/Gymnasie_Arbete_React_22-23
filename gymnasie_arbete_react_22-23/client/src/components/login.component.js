@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e){
+    e.preventDefault();
+    console.log(email, password);
+
+    fetch("http://localhost:8000/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      })
+    })
+    .then(d => d.json())
+    .then((data) => {
+      console.log(data)
+      if(data.status==="ok"){ 
+        alert("login success");
+        window.localStorage.setItem("token", data);
+        window.location.href = "/userdetails"
+      } 
+    })
+    .catch(err => console.log(err));
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>Sign In</h3>
 
       <div className="mb-3">
@@ -11,6 +41,7 @@ function Login() {
           type="email"
           className="form-control"
           placeholder="Enter email"
+          onChange={e => setEmail(e.target.value)}
         />
       </div>
 
@@ -20,6 +51,7 @@ function Login() {
           type="password"
           className="form-control"
           placeholder="Enter password"
+          onChange={e => setPassword(e.target.value)}
         />
       </div>
 

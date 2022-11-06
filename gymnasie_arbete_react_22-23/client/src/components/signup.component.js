@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function SignUp() {
   const [fname, setFname] = useState("");
@@ -7,8 +6,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit() {
     fetch("http://localhost:8000/sign-up", {
       method: "POST",
       headers: {
