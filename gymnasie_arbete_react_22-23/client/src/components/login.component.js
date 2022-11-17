@@ -6,8 +6,6 @@ function Login() {
 
   function handleSubmit(e){
     e.preventDefault();
-    console.log(email, password);
-
     fetch("http://localhost:8000/sign-in", {
       method: "POST",
       headers: {
@@ -21,12 +19,12 @@ function Login() {
     })
     .then(d => d.json())
     .then((data) => {
-      console.log(data)
       if(data.status==="ok"){ 
-        alert("login success");
-        window.localStorage.setItem("token", data);
-        window.location.href = "/userdetails"
-      } 
+        window.localStorage.setItem("token", data.data);
+        window.location.href = "/homepage"
+      } else {
+        alert("Wrong Email or Password")
+      }
     })
     .catch(err => console.log(err));
   }

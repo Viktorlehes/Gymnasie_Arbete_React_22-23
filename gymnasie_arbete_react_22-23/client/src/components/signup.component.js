@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function SignUp() {
   const [fname, setFname] = useState("");
@@ -6,7 +6,13 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit() {
+  function HandleSubmit(e) {
+    const url = "http://localhost:8000/sign-up";
+    const fetchPost = async () => {
+      const response = await fetch(url);
+    }
+
+    e.preventDefault();
     fetch("http://localhost:8000/sign-up", {
       method: "POST",
       headers: {
@@ -18,12 +24,20 @@ function SignUp() {
         lname,
         email,
         password,
+      }),
+    })
+      .then((d) => {
+        console.log(d.status);
+        if (d.status === 200) {window.location.href = "/sign-in";}
       })
-    }).then(d => d.json()).then(e => console.log(e)).catch(err => console.log(err));
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={HandleSubmit}>
       <h3>Sign Up</h3>
 
       <div className="mb-3">

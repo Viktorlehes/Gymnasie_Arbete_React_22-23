@@ -83,3 +83,11 @@ html,
 .forgot-password a {
   color: #167bff;
 }
+
+
+/* Home page style */
+
+.wrapper { 
+  width: 100vw;
+  height: 100vh%;
+}
