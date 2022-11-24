@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function SignUp() {
   const [fname, setFname] = useState("");
@@ -7,11 +7,6 @@ function SignUp() {
   const [password, setPassword] = useState("");
 
   function HandleSubmit(e) {
-    const url = "http://localhost:8000/sign-up";
-    const fetchPost = async () => {
-      const response = await fetch(url);
-    }
-
     e.preventDefault();
     fetch("http://localhost:8000/sign-up", {
       method: "POST",
@@ -37,7 +32,7 @@ function SignUp() {
   }
 
   return (
-    <form onSubmit={HandleSubmit}>
+    <form className="wrapper-register" onSubmit={HandleSubmit}>
       <h3>Sign Up</h3>
 
       <div className="mb-3">

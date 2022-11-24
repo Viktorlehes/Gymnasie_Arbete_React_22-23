@@ -18,7 +18,7 @@ function Logged_in() {
       {isLoggedIn ? (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a onClick={logout} style={{cursor: "pointer"}}>Logout?</a>
+            <span onClick={logout} id="logout" className="material-symbols-outlined">logout</span>
           </li>
         </ul>
       ) : (

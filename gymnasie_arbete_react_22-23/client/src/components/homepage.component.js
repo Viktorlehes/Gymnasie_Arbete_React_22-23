@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Projects from "./projects.component";
+import Todos from "./todos.component"
 
 function Homepage() {
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({});
+  const [data, setData] = useState("");
+
+  function _setFolder(childData) {
+    setData(childData);
+  }  
 
   useEffect(() => {
     fetch("http://localhost:8000/homepage", {
@@ -16,14 +23,16 @@ function Homepage() {
     })
       .then((d) => d.json())
       .then((e) => {
-        console.log(e) 
-        setUserData(e.data)
+        setUserData(e.data);
+        console.log(userData)
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className="project-wrapper">
+      <Projects _setFolder={_setFolder} />
+      <Todos data={data}></Todos>
     </div>
   );
 }
