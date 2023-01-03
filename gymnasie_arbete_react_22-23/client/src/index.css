@@ -149,12 +149,56 @@ html,
 padding-right: 10px ;
 }
 
+.projects-item a {
+  text-decoration: none;
+  color: black;
+}
+
 #project-item-add {
   padding-left: 10%;
 }
 
 .wrapper-projects-item {
   margin: 0;
+}
+
+.collection-add-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  border-radius: 5px;
+  padding: 10px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
+
+.error-message {
+  color: red;
+}
+
+.collection-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
 }
 
 .wrapper-todos {
@@ -164,4 +208,24 @@ padding-right: 10px ;
 
 .wrapper-todos li{
   list-style-type: none;
+}
+
+.remove-todo {
+  all: unset;
+  cursor: pointer;
+}
+
+.remove-todo:focus {
+  outline: red 5px;
+}
+
+.todo-item-wrapper {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content:space-between;
+}
+
+.todo-button-wrapper {
+  display: flex;
 }

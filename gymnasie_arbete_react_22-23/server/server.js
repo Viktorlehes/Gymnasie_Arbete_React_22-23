@@ -17,6 +17,8 @@ app.use((_, res, next) => {
 
 dotenv.config();
 
+mongoose.set('strictQuery', true);
+
 mongoose
   .connect(process.env.DATABASE_ACCESS, {
     useNewUrlParser: true,
