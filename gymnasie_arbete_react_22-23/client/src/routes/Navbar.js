@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export function Navbar() {
+export function Navbar(isLoggedIn) {
   const navigate = useNavigate();
-  const [isLoggedIn, setLogin] = useState("");
-
-  useEffect(() => {
-    setLogin(window.localStorage.getItem("token"));
-  }, []);
 
   function logout() {
     window.localStorage.removeItem("token");
-    navigate("/");
+    window.location.reload(0);
   }
 
   return (
     <div>
-      {isLoggedIn ? (
-        <ul className="navbar-nav ml-auto">
+      {isLoggedIn.data ? (
+        <ul className="nav-items">
+          <li className="nav-item">
+            <Link className="nav-link" to={"/calendar"}>
+              Calendar
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to={"/home"}>
+              Todos
+            </Link>
+          </li>
           <li className="nav-item">
             <span
               onClick={logout}

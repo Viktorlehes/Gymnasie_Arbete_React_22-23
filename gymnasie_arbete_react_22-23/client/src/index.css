@@ -105,12 +105,26 @@ html,
 
 /* Home page style */
 
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.nav-item {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  margin-right:10px;
+}
+
 .project-wrapper { 
   display: flex;
   flex-direction: row;
   width: 100vw;
   height: 93vh;
-  margin-top: 7vh;
+  margin-top: 9vh;
 }
 
 .wrapper-projects {
@@ -166,6 +180,7 @@ padding-right: 10px ;
   padding: 0;
   border: none;
   background: none;
+  
 }
 
 .popup-content {
@@ -229,3 +244,11 @@ padding-right: 10px ;
 .todo-button-wrapper {
   display: flex;
 }
+
+
+
+
+
+
+
+/* Calendar */

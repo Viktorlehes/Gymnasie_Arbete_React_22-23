@@ -1,5 +1,12 @@
 import React from "react";
 import { Form, redirect, Link } from "react-router-dom";
+import { requireUserSession } from "../../services/auth"
+
+export async function loader() {
+  const auth = await requireUserSession({navToken: "not logged in"});
+
+  return null;
+}
 
 export async function action({ params, request }) {
   let formData = await request.formData();

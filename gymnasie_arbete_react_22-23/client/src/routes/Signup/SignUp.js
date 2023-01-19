@@ -24,8 +24,6 @@ export async function action({ params, request }) {
 
   const { status } = await req.json();
 
-  console.log(status)
-
   if (status === 200) {
     return redirect("/login");
   } else {

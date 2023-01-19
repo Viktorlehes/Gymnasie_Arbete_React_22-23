@@ -16,8 +16,13 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
-export async function requireUserSession() {
+export async function requireUserSession( navToken ) {
   const token = window.localStorage.getItem("token");
+
+  if (navToken) {
+    console.log(navToken)
+    return null;
+  }
 
   if (!token) {
     throw redirect("/login", 302);
