@@ -19,7 +19,6 @@ import {
   loader as todosLoader,
   action as todosAction,
 } from "./routes/todos/Todos";
-import { Calendar, loader as calendarLoader } from "./calendar/Calendar";
 
 import "./index.css";
 
@@ -28,7 +27,6 @@ function ErrorBoundary() {
   console.error(error);
   return <div>Dang!</div>;
 }
-
 
 const router = createBrowserRouter([
   {
@@ -65,12 +63,6 @@ const router = createBrowserRouter([
             errorElement: <ErrorBoundary />,
           },
         ],
-      },
-      {
-        path: "calendar",
-        loader: calendarLoader,
-        element: <Calendar />,
-        errorElement: <ErrorBoundary />,
       },
     ],
   },

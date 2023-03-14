@@ -20,7 +20,6 @@ export async function requireUserSession( navToken ) {
   const token = window.localStorage.getItem("token");
 
   if (navToken) {
-    console.log(navToken)
     return null;
   }
 

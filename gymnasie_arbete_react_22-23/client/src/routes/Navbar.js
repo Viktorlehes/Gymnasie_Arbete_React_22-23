@@ -14,16 +14,6 @@ export function Navbar(isLoggedIn) {
       {isLoggedIn.data ? (
         <ul className="nav-items">
           <li className="nav-item">
-            <Link className="nav-link" to={"/calendar"}>
-              Calendar
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to={"/home"}>
-              Todos
-            </Link>
-          </li>
-          <li className="nav-item">
             <span
               onClick={logout}
               id="logout"

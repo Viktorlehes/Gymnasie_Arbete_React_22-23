@@ -221,7 +221,6 @@ Router.post("/home/edit/:todoId", async (request, response) => {
   const { userId } = jwt.verify(token, JWT_SECRET);
   const todoId = request.params["todoId"];
   const newTodo = request.body.newTodo
-  console.log(newTodo);
 
   if (!userId) {
     return response.status(422).json({ error: "user id" });
